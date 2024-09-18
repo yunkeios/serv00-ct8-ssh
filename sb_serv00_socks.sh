@@ -36,14 +36,14 @@ export CFPORT=${CFPORT:-'443'}
 # 定义文件下载地址
 SB_WEB_ARMURL="https://github.com/eooce/test/releases/download/arm64/sb"
 # AG_BOT_ARMURL="https://github.com/eooce/test/releases/download/arm64/bot13"
-AG_BOT_ARMURL="https://github.com/yutian81/serv00-ct8-ssh/releases/download/arm64/cloudflared_arm64"
+AG_BOT_ARMURL="https://github.com/yunkeios/serv00-ct8-ssh/releases/download/arm64/cloudflared_arm64"
 NZ_NPM_ARMURL="https://github.com/eooce/test/releases/download/ARM/swith"
 SB_WEB_X86URL="https://00.2go.us.kg/web"
 AG_BOT_X86URL="https://00.2go.us.kg/bot"
 NZ_NPM_X86URL="https://00.2go.us.kg/npm"
-CORN_URL="https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/check_sb_cron.sh"
-UPDATA_URL="https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/sb_serv00_socks.sh"
-REBOOT_URL="https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/reboot.sh"
+CORN_URL="https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/main/check_sb_cron.sh"
+UPDATA_URL="https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/main/sb_serv00_socks.sh"
+REBOOT_URL="https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/main/reboot.sh"
 
 [ -d "${WORKDIR}" ] || (mkdir -p "${WORKDIR}" && chmod -R 755 "${WORKDIR}")
 
