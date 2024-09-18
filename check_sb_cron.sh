@@ -7,18 +7,18 @@ WORKDIR="/home/${USERNAME}/logs"
 CRON_NEZHA="nohup ./nezha.sh >/dev/null 2>&1 &"
 CRON_SB="nohup ./web run -c config.json >/dev/null 2>&1 &"
 CRON_ARGO="nohup ./argo.sh >/dev/null 2>&1 &"
-chmod -R 777 "${WORKDIR}"
+chmod -R 755 "${WORKDIR}"
 
-(crontab -l | grep -v -E "@reboot pkill -kill -u $(whoami)|pgrep -x \"npm\"|pgrep -x \"web\"|pgrep -x \"bot\"") | crontab -
-red "检查已存在的特定任务并清除"
-#crontab -r
-#red "清除所有已存在的 crontab 任务"
+#(crontab -l | grep -v -E "@reboot pkill -kill -u $(whoami)|pgrep -x \"npm\"|pgrep -x \"web\"|pgrep -x \"bot\"") | crontab -
+#red "检查已存在的特定任务并清除"
+crontab -r
+red "清除所有已存在的 crontab 任务"
 
 # 初始化一个新的 crontab 文件内容
 NEW_CRONTAB=""
 
 # 判断文件是否存在，并根据情况添加任务
-if [ -e "${WORKDIR}/nezha.sh" ] && [ -e "${WORKDIR}/web" ] && [ -e "${WORKDIR}/argo.sh" ]; then
+if [ -e "${WORKDIR}/npm" ] && [ -e "${WORKDIR}/web" ] && [ -e "${WORKDIR}/bot" ]; then
   green "正在添加 nezha & singbox & argo 的 crontab 重启任务"
   NEW_CRONTAB+="@reboot pkill -kill -u $(whoami) && cd ${WORKDIR} && ${CRON_NEZHA} ${CRON_SB} ${CRON_ARGO}\n"
   NEW_CRONTAB+="*/10 * * * * pgrep -x \"npm\" > /dev/null || cd ${WORKDIR} && ${CRON_NEZHA}\n"
