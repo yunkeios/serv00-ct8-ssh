@@ -16,13 +16,13 @@
 
 - **四合一安装脚本，需要交互式输入**
 ```
-curl -s https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/sb_serv00_socks.sh -o sb00.sh && bash sb00.sh  
+curl -s https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/main/sb_serv00_socks.sh -o sb00.sh && bash sb00.sh  
 ```
 ![主菜单截图](https://fastly.jsdelivr.net/gh/yutian81/yutian81.github.io@master/assets/images/17258552404381725855239743.png)
 
 - 也可以支持老王的无交互安装
 例如（注意大小写）：  
-`VMESS_PORT=tcp端口 HY2_PORT=udp端口 SOCKS_PORT=udp端口 SOCKS_USER=abc123 SOCKS_PASS=abc456 bash <(curl -Ls https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/vps_sb00_alive/sb00-sk5.sh)`
+`VMESS_PORT=tcp端口 HY2_PORT=udp端口 SOCKS_PORT=udp端口 SOCKS_USER=abc123 SOCKS_PASS=abc456 bash <(curl -Ls https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/main/vps_sb00_alive/sb00-sk5.sh)`
 
 - 其他变量也可一并写入，例如（注意大小写）：  
 `UUID=123456 NEZHA_SERVER=nz.abcd.com NEZHA_PORT=5555 NEZHA_KEY=123ABC ARGO_DOMAIN=2go.admin.com ARGO_AUTH=abc123`（如果是json格式的密钥，需要用英文 `'{abcabc}'` 单引号包裹）
@@ -37,7 +37,7 @@ curl -s https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/sb_serv00
 
 ## VPS版一键无交互脚本 5in1：vless+reality|vmess+argo|hy2|tuic|socks5
 ```
-vless_port=自定义端口 bash <(curl -Ls https://raw.githubusercontent.com/yutian81/serv00-ct8-ssh/main/vps_sb5in1.sh)
+vless_port=自定义端口 bash <(curl -Ls https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/main/vps_sb5in1.sh)
 ```
 
 ### 测试socks5是否通畅：运行以下命令，若正确返回服务器ip则节点通畅
