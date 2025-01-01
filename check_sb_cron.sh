@@ -11,7 +11,7 @@ chmod -R 755 "${WORKDIR}"
 
 (crontab -l | grep -v -E "@reboot pkill -kill -u $(whoami)|pgrep -x \"npm\"|pgrep -x \"web\"|pgrep -x \"bot\"") | crontab -
 red "检查已存在的特定任务并清除"
-#crontab -r
+crontab -r
 #red "清除所有已存在的 crontab 任务"
 
 # 初始化一个新的 crontab 文件内容
