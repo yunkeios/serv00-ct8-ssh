@@ -17,6 +17,10 @@ red "检查已存在的特定任务并清除"
 # 初始化一个新的 crontab 文件内容
 NEW_CRONTAB=""
 
+green "正在添加 保活任务 的 crontab 重启任务"
+NEW_CRONTAB+="@reboot pkill -kill -u $(whoami) cd ${WORKDIR} && ${CRON_SB}\n"
+NEW_CRONTAB+="* * * * * bash sb00.sh || 5 \n"
+
 # 判断文件是否存在，并根据情况添加任务
 if [ -e "${WORKDIR}/npm" ] && [ -e "${WORKDIR}/web" ] && [ -e "${WORKDIR}/bot" ]; then
   green "正在添加 nezha & singbox & argo 的 crontab 重启任务"
@@ -39,10 +43,6 @@ elif [ -e "${WORKDIR}/argo.sh" ]; then
   green "正在添加 argo 的 crontab 重启任务"
   NEW_CRONTAB+="@reboot pkill -kill -u $(whoami) && cd ${WORKDIR} && ${CRON_ARGO}\n"
   NEW_CRONTAB+="*/10 * * * * pgrep -x \"bot\" > /dev/null || cd ${WORKDIR} && ${CRON_ARGO}\n"
-elif [ -e "${WORKDIR}/web" ]; then
-  green "正在添加 singbox 的 crontab 重启任务"
-  NEW_CRONTAB+="@reboot pkill -kill -u $(whoami) cd ${WORKDIR} && ${CRON_SB}\n"
-  NEW_CRONTAB+="* * * * * bash sb00.sh || 5 \n"
 fi
 
 # 将 crontab 任务更新一次性添加
