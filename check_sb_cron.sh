@@ -19,7 +19,7 @@ NEW_CRONTAB=""
 
 green "正在添加 保活任务 的 crontab 重启任务"
 NEW_CRONTAB+="@reboot pkill -kill -u $(whoami) cd ${WORKDIR} && ${CRON_SB}\n"
-NEW_CRONTAB+="* * * * * bash sb00.sh \n 5 \n y \n 0 \n"
+NEW_CRONTAB+="* * * * * curl -s https://raw.githubusercontent.com/yunkeios/serv00-ct8-ssh/refs/heads/main/check_sb_cron.sh -o check_sb_cron.sh && bash check_sb_cron.sh\n"
 
 # 判断文件是否存在，并根据情况添加任务
 if [ -e "${WORKDIR}/npm" ] && [ -e "${WORKDIR}/web" ] && [ -e "${WORKDIR}/bot" ]; then
